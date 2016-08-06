@@ -6,7 +6,7 @@ module Api
       end
 
       def show
-        render json: Schedule.find(params[:id])
+        render json: Schedule.find(params[:id]), include: 'cohort', serializer: ScheduleWithAttendanceRecordsByDate
       end
     end
   end
