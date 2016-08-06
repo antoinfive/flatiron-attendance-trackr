@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 20160806012337) do
   create_table "schedules", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer  "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cohort_id"], name: "index_schedules_on_cohort_id", using: :btree
   end
 
   create_table "user_cohorts", force: :cascade do |t|
