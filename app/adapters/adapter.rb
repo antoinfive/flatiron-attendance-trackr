@@ -3,17 +3,19 @@ require 'rest-client'
 module Adapter
   class LearnAPI
     class Client
+      attr_reader :oauth_token
 
-      def initialize(token)
-        @token = token
+      def initialize(oauth_token)
+        @oauth_token = oauth_token
       end
 
       def fetch_students(batch_id)
-        #url = "http://learn.co/api/batches/:id/users"
-        RestClient.get("http://learn.co/api")
-
+        RestClient.get("http://learn.co/api/batches/#{batch_id}/users", request_header)
       end
 
+      def request_header
+        {"Authorization" => "Bearer #{oauth_token}"}
+      end
 
     end
   end
