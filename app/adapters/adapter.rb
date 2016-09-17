@@ -20,3 +20,4 @@ module Adapter
     end
   end
 end
+end

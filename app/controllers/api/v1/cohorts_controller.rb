@@ -7,7 +7,7 @@ module Api
       end
 
       def show
-        render json: Cohort.find(params[:id])
+        render json: Cohort.find(params[:id]), include: ['students']
       end
     end
   end
