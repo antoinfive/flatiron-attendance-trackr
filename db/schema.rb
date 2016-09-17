@@ -10,26 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806012337) do
+ActiveRecord::Schema.define(version: 20160809021649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attendance_records", force: :cascade do |t|
-    t.integer  "student_id"
+    t.integer  "user_id"
     t.integer  "schedule_id"
     t.datetime "date"
     t.boolean  "arrived"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["schedule_id"], name: "index_attendance_records_on_schedule_id", using: :btree
-    t.index ["student_id"], name: "index_attendance_records_on_student_id", using: :btree
+    t.index ["user_id"], name: "index_attendance_records_on_user_id", using: :btree
   end
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "batch_id"
   end
 
   create_table "holidays", force: :cascade do |t|
@@ -42,10 +43,8 @@ ActiveRecord::Schema.define(version: 20160806012337) do
   create_table "schedules", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cohort_id"], name: "index_schedules_on_cohort_id", using: :btree
   end
 
   create_table "user_cohorts", force: :cascade do |t|
@@ -65,6 +64,8 @@ ActiveRecord::Schema.define(version: 20160806012337) do
     t.boolean  "instructor",      default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "uid"
+    t.string   "oauth_token"
     t.index ["cohort_id"], name: "index_users_on_cohort_id", using: :btree
   end
 
