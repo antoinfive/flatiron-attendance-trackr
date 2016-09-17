@@ -1,4 +1,4 @@
-class ScheduleWithAttendanceRecordsByDateSerialize < ActiveModel::Serializer
+class ScheduleWithAttendanceRecordsByDateSerializer < ActiveModel::Serializer
   attributes :id, :start_date, :end_date, :attendance_records_by_date
 
   def attendance_records_by_date
