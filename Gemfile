@@ -35,6 +35,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'faker'
   gem 'rest-client'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
