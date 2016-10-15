@@ -10,10 +10,3 @@ class SessionsController < ActionController::Base
 end
 
 
-RestClient.post "https://learn.co/oauth/token",
-    {client_id: ENV['LEARD_CLIENT_ID', 
-     client_secret: ENV['LEARDN_CLIENT_SECRET'] 
-     redirect_uri: 'http://localhost:5000/auth/learn/callback',
-     grant_type: "authorization_code",
-     code: param["code"].to_json, 
-    :content_type => :json, :accept => :json
