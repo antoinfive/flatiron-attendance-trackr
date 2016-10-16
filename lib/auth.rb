@@ -5,7 +5,7 @@ class Auth
 
   def self.issue(payload)
     JWT.encode(
-      payload, 
+      exp_payload, 
       auth_secret,
       ALGORITHM 
     )
@@ -13,12 +13,16 @@ class Auth
 
 
   def self.decode(token)
-     JWT.decode(
+   begin  
+    JWT.decode(
       token.strip,
       auth_secret,
       true,
       { algorithm: ALGORITHM }
     ).first
+   rescue
+     JWT::ExpiredSignature
+   end
   end
 
   def self.auth_secret
