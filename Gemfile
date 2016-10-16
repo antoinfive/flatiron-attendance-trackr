@@ -10,10 +10,10 @@ gem 'puma', '~> 3.0'
 gem 'figaro'
 
 ## auth
-gem "omniauth"
-gem "omniauth-oauth2"
-gem "oauth2", git: "git@github.com:flatiron-school/oauth2.git"
-gem "omniauth-learn"
+# gem "omniauth"
+# gem "omniauth-oauth2"
+# gem "oauth2", git: "git@github.com:flatiron-school/oauth2.git"
+# gem "omniauth-learn"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

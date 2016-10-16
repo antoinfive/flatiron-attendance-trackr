@@ -4,11 +4,13 @@ class User < ApplicationRecord
 
   def self.find_or_create_from_oauth(auth_hash)   
     User.find_or_create_by(uid: auth_hash["uid"]) do |user|
-      user.first_name = auth_hash["info"]["first_name"]
-      user.last_name = auth_hash["info"]["last_name"]
-      user.email = auth_hash["info"]["email"]
-      user.oauth_token = auth_hash["info"]["token"]
+      user.first_name = auth_hash["first_name"]
+      user.last_name = auth_hash["last_name"]
+      user.email = auth_hash["email"]
+      user.uid = auth_hash["id"]
+      user.instructor = auth_hash["admin"]
       user.save
     end
   end
 end
+
