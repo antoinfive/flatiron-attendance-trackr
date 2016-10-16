@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       end
       resources :cohorts
       resources :users
+      get '/me', to: 'users#me'
     end
   end
 
