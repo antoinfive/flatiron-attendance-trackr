@@ -29,5 +29,6 @@ module FlatironAttendanceTrackr
     # config.middleware.use "SelectiveSession"
     # config.middleware.insert_before SelectiveSession, "OmniAuth::Builder"
     config.api_only = false
+    config.autoload_paths << Rails.root.join('lib')  
   end
 end

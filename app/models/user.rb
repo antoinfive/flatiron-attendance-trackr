@@ -9,6 +9,7 @@ class User < ApplicationRecord
       user.email = auth_hash["email"]
       user.uid = auth_hash["id"]
       user.instructor = auth_hash["admin"]
+      user.cohort_id = 1
       user.save
     end
   end

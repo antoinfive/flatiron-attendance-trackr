@@ -3,7 +3,8 @@ module Api
     class UsersController < ApplicationController
       def me
         puts "#{request.env['HTTP_AUTHORIZATION']}"
-        render json: {current_user: "some dude"}
+        binding.pry
+        render json: {current_user: current_user}
       end
     end
   end
