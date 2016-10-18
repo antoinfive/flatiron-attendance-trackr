@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :attendance_records
 
   def self.find_or_create_from_oauth(auth_hash)   
-    User.find_or_create_by(uid: auth_hash["uid"]) do |user|
+    User.find_or_create_by(uid: auth_hash["id"]) do |user|
       user.first_name = auth_hash["first_name"]
       user.last_name = auth_hash["last_name"]
       user.email = auth_hash["email"]
