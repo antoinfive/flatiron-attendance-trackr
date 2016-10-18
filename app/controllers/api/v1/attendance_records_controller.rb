@@ -3,7 +3,8 @@ module Api
     class AttendanceRecordsController < ApplicationController
 
       def index
-        render json: AttendanceRecord.where(schedule_id: params[:schedule_id]), include: 'student'
+        render json: AttendanceRecord.all.take(10)
+        # render json: AttendanceRecord.where(schedule_id: params[:schedule_id])
       end
 
       def show
