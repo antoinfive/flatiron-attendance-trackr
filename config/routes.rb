@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :cohorts
       resources :users
       get '/me', to: 'users#me'
+      get '/students/:id/attendance_records', to: "students#show"
     end
   end
 

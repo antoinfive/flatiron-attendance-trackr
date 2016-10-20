@@ -3,7 +3,9 @@ module Api
     class AttendanceRecordsController < ApplicationController
 
       def index
-        render json: AttendanceRecord.all.take(10)
+        binding.pry
+        @schedule = Schedule.find(params[:schedule_id])
+        render json: @schedule, serializer: ScheduleWithAttendanceRecordsByDateSerializer
         # render json: AttendanceRecord.where(schedule_id: params[:schedule_id])
       end
 
