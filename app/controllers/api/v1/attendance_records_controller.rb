@@ -3,8 +3,11 @@ module Api
     class AttendanceRecordsController < ApplicationController
 
       def index
-        render json: AttendanceRecord.all.take(10)
-        # render json: AttendanceRecord.where(schedule_id: params[:schedule_id])
+        if current_user.instructor?
+          render json: current_user.active_cohort.attendance_records_by_date
+        else
+          render json: current_user.attendance_records
+        end
       end
 
       def show

@@ -1,7 +1,6 @@
 class SessionsController < ActionController::Base
 
-  def new
-  end
+  skip_before_action :authenticate
 
   def create    
     current_user_payload = LearnApiAuthorizer.new(params[:code]).fetch_current_user_payload
