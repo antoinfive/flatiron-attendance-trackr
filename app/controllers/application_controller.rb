@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :authenticate
-  helper_method :current_user, :logged_in?
+
   
   def logged_in?
     !!current_user

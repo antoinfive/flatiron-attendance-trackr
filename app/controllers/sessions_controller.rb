@@ -1,5 +1,4 @@
-class SessionsController < ActionController::Base
-
+class SessionsController < ApplicationController 
   skip_before_action :authenticate
 
   def create    
