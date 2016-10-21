@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809021649) do
+ActiveRecord::Schema.define(version: 20161021173224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,9 @@ ActiveRecord::Schema.define(version: 20160809021649) do
   create_table "user_cohorts", force: :cascade do |t|
     t.integer  "instructor_id"
     t.integer  "cohort_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "active",        default: false
     t.index ["cohort_id"], name: "index_user_cohorts_on_cohort_id", using: :btree
   end
 
