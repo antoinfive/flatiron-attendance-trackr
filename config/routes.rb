@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :attendance_records
       resources :cohorts
       resources :users
+      get '/students', to: 'students#index'
       get '/me', to: 'users#me'
     end
   end
