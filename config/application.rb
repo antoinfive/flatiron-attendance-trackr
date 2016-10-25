@@ -30,5 +30,6 @@ module FlatironAttendanceTrackr
     # config.middleware.insert_before SelectiveSession, "OmniAuth::Builder"
     config.api_only = false
     config.autoload_paths << Rails.root.join('lib')  
+    config.time_zone = 'Eastern Time (US & Canada)'
   end
 end
