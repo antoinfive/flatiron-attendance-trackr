@@ -8,6 +8,21 @@ end
   Holiday.create(date: day.to_date)
 end
 
-Schedule.create(start_date: Date.today - 90, end_date: Date.today, cohort: Cohort.first)
+Schedule.create(start_date: Date.today - 60, end_date: Date.today, cohort: Cohort.first)
 
 
+
+AttendanceRecord.all.each do |rec|
+  rec.arrived_at = rec.date
+  rec.arrived = true
+  rec.save
+end
+
+5.times do 
+  random_date = AttendanceRecord.all.sample.date
+  AttendanceRecord.where(date: random_date).each do |rec|
+    rec.arrived_at = nil
+    rec.arrived = false
+    rec.save
+  end
+end
